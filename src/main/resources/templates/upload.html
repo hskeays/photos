@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/home.css" rel="stylesheet">
+    <title>Photo Upload</title>
+</head>
+<body>
+    <header>
+        <nav th:insert="~{fragments/navigation::navigation_bar}"></nav>
+    </header>
+
+    <main>
+        <div class="upload-container">
+            <h2 th:text="'Upload your photo'">Photo Upload</h2>
+
+            <!-- Form for file upload -->
+            <form action="/upload" enctype="multipart/form-data" method="POST">
+                <!-- Hidden file input -->
+                <input id="file-upload" name="fileupload" required type="file"/>
+
+                <!-- Custom button that triggers file selection -->
+                <label class="upload-btn" for="file-upload">Select File</label>
+
+                <!-- Display selected file name (optional) -->
+                <span id="file-name"></span>
+
+                <br/>
+                <button type="submit">Upload</button>
+            </form>
+
+            <!-- Display status message -->
+            <div id="status-message" th:text="${statusMessage}"></div>
+
+            <!-- Display uploaded photos -->
+            <div class="photo-container">
+                <h3>Your Photos:</h3>
+                <div class="photo-grid">
+                    <div th:each="photo : ${photos}">
+                        <img alt="Photo" class="photo" th:src="@{/photos/{id}(id=${photo.id})}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" th:insert="~{fragments/footer::footer}"></footer>
+
+    <script>
+        // Display the selected file name (optional)
+        const fileInput = document.getElementById('file-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        fileInput.addEventListener('change', function() {
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : '';
+            fileNameDisplay.textContent = fileName ? `Selected file: ${fileName}` : '';
+        });
+    </script>
+</body>
+</html>

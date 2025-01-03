@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/home.css" rel="stylesheet">
+    <title>Photo App</title>
+</head>
+<body>
+    <header>
+        <nav th:insert="~{fragments/navigation::navigation_bar}"></nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to the Photo App!</h1>
+        <p th:text="'Welcome to the photo app, ' + ${name} + '!'"></p>
+    </section>
+
+    <main>
+        <h2>Manage Your Photos</h2>
+        <a class="button" href="/photos">View Photos</a>
+        <a class="button" href="/upload">Upload Photos</a>
+    </main>
+
+    <footer class="footer" th:insert="~{fragments/footer::footer}"></footer>
+</body>
+</html>
