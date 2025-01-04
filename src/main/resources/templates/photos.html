@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <nav th:insert="~{fragments/navigation::navigation_bar}"></nav>
+        <nav class="nav" th:insert="~{fragments/navigation::navigation_bar}"></nav>
     </header>
 
     <main>
@@ -16,7 +16,7 @@
         </section>
 
         <div class="photo-container">
-            <div class="photo-grid-squares" th:each="photo : ${photos}">
+            <div class="photo-squares" th:each="photo : ${photos}">
                 <img alt="Photo" class="photo" th:src="@{'/photos/' + ${photo.id}}">
             </div>
         </div>

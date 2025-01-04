@@ -13,10 +13,13 @@ body {
 }
 
 /* Navigation styles *************************************************************************************************/
+nav {
+    padding: 0px 40px;
+}
+
 .nav {
-    padding: 10px 20px;
     box-shadow: 0 1px 16px rgba(0, 0, 0, 0.08);
-    background-color: #D8DBE2;
+    background-color: #EEE;
     z-index: 3;
     position: sticky;
 }
@@ -60,6 +63,10 @@ nav a:hover {
     background-color: #CCCCCC;
 }
 
+.logo-link:hover {
+    background-color: #EEE;
+}
+
 /* Main styles *******************************************************************************************************/
 .hero {
     flex: 1;
@@ -70,9 +77,8 @@ nav a:hover {
     padding: 40px 30px;
     border-radius: 7px;
     width: 100%;
-    margin: 0px 0px 10px 0px;
-    background-color: #A9BCD0;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    background-color: #EEE;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
     max-width: 1800px;
 }
 
@@ -85,8 +91,8 @@ nav a:hover {
     padding: 40px 30px;
     width: 100%;
     border-radius: 7px;
-    background-color: #A9BCD0;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    background-color: #EEE;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
     max-width: 1800px;
 }
 
@@ -96,49 +102,40 @@ main {
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    gap: 30px;
     padding: 40px 30px;
-    background-color: #D8DBE2;
+    background-color: #FFF;
 }
 
 /* Photo container styles *******************************************************************************************/
 .photo-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
     padding: 20px;
-    max-width: 1200px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 15px; /* Slightly rounded corners for the grid container */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    min-height: 50vh;
-    max-height: 70vh;
-    overflow-y: auto;
 }
 
 .photo-container img {
-    width: 100%;
+    max-width: 800px;
     height: 100%;
-    object-fit: contain;
-    border-radius: 10px; /* Rounded corners for the images */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+    padding: 30px;
+    margin: 10px 0px;
+    border-radius: 8px;
+    box-shadow: 0 1px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.photo-grid-squares {
+.photo-squares {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 300px;
-    width: 100%;
-    overflow: hidden; /* Prevents images from overflowing the container */
-    border-radius: 10px; /* Round corners for the container */
 }
 
 .photo-container img:hover {
-    transform: scale(1.05); /* Slight zoom-in effect on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    transform: scale(1.01);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Optional: Add a subtle background hover effect for each grid item */
@@ -149,10 +146,14 @@ main {
 
 /* Upload container styles *******************************************************************************************/
 .upload-container {
-    max-width: 600px;
-    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1800px;
+    width: 100%;
     padding: 30px;
-    background-color: #fff;
+    background-color: #EEE;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -225,8 +226,7 @@ main {
     align-items: center;
     padding: 10px 30px;
     gap: 20px;
-    color: rgb(240, 240, 240);
-    background-color: #D8DBE2;
+    background-color: #EEE;
     font-size: 12px;
     box-shadow: 0 1px 16px rgba(0, 0, 0, 0.08);
 }
@@ -237,6 +237,6 @@ main {
 }
 
 .footer p {
-    color: white;
+    color: #1B1B1E;
     text-align: center;
 }
