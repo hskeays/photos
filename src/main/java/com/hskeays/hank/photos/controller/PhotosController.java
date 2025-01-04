@@ -45,14 +45,17 @@ public class PhotosController {
     }
 
     @PostMapping("/photos/delete")
-    public String deletePhotos(@RequestParam List<Integer> photoIds) {
-        if (photoIds != null && !photoIds.isEmpty()) {
-            for (Integer id : photoIds) {
-                if (photosService.getPhotoById(id) == null) {
-                    throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Photo with ID " + id + " not found");
-                }
-                photosService.deleteById(id);
+    public String deletePhotos(@RequestParam(required = false) List<Integer> photoIds, Model model) {
+        if (photoIds == null || photoIds.isEmpty()) {
+            model.addAttribute("statusMessage", "No photos selected for deletion!");
+            return "redirect:/photos";
+        }
+
+        for (Integer id : photoIds) {
+            if (photosService.getPhotoById(id) == null) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Photo with ID " + id + " not found");
             }
+            photosService.deleteById(id);
         }
         return "redirect:/photos";
     }
