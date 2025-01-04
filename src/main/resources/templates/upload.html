@@ -14,32 +14,27 @@
         <div class="upload-container">
             <h2 th:text="'Upload your photo'">Photo Upload</h2>
 
-            <!-- Form for file upload -->
-            <form action="/upload" enctype="multipart/form-data" method="POST">
-                <!-- Hidden file input -->
-                <input id="file-upload" name="fileupload" required type="file"/>
-
-                <!-- Custom button that triggers file selection -->
-                <label class="upload-btn" for="file-upload">Select File</label>
-
-                <!-- Display selected file name (optional) -->
+            <div class="upload-form-container">
+                <!-- Form for file upload -->
+                <form action="/upload" enctype="multipart/form-data" method="POST">
+                    <!-- Hidden file input -->
+                    <input id="file-upload" name="fileupload" required type="file"/>
+                    <!-- Custom button that triggers file selection -->
+                    <label class="upload-btn" for="file-upload">Select File</label>
+                    <!-- Display selected file name (optional) -->
+                    <br/>
+                    <button class="upload-btn"type="submit">Upload</button>
+                </form>
                 <span id="file-name"></span>
+                <!-- Display status message -->
+                <div id="status-message" th:text="${statusMessage}"></div>
+            </div>
+        </div>
 
-                <br/>
-                <button type="submit">Upload</button>
-            </form>
-
-            <!-- Display status message -->
-            <div id="status-message" th:text="${statusMessage}"></div>
-
-            <!-- Display uploaded photos -->
-            <div class="photo-container">
-                <h3>Your Photos:</h3>
-                <div class="photo-grid">
-                    <div th:each="photo : ${photos}">
-                        <img alt="Photo" class="photo" th:src="@{/photos/{id}(id=${photo.id})}"/>
-                    </div>
-                </div>
+        <div class="photo-container">
+            <h3>Your Photos:</h3>
+            <div th:each="photo : ${photos}">
+                <img alt="Photo" class="photo" th:src="@{/photos/{id}(id=${photo.id})}"/>
             </div>
         </div>
     </main>
