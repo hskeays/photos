@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="/home.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Photos</title>
 </head>
 <body>
@@ -15,11 +16,21 @@
             <h1 th:text="${name} + 's photos'">My Photos</h1>
         </section>
 
-        <div class="photo-container">
-            <div class="photo-squares" th:each="photo : ${photos}">
-                <img alt="Photo" class="photo" th:src="@{'/photos/' + ${photo.id}}">
+        <form method="post" action="/photos/delete">
+            <div class="photo-container">
+                <div class="button-container">
+                    <button type="submit" class="delete-button">
+                        <i class="fas fa-trash-alt"></i> Delete Selected
+                    </button>
+                </div>
+                <div class="photo-squares" th:each="photo : ${photos}">
+                    <input type="checkbox" name="photoIds" th:value="${photo.id}" th:id="'photo-id-' + ${photo.id}">
+                    <label th:for="'photo-id-' + ${photo.id}">
+                        <img alt="Photo" class="photo" th:src="@{'/photos/' + ${photo.id}}"/>
+                    </label>
+                </div>
             </div>
-        </div>
+        </form>
     </main>
 
     <footer class="footer" th:insert="~{fragments/footer::footer}"></footer>

@@ -1,3 +1,4 @@
+/* Global Styles **************************************************************************************************/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -67,7 +68,7 @@ nav a:hover {
     background-color: #EEE;
 }
 
-/* Main styles *******************************************************************************************************/
+/* Main Content Styles *********************************************************************************************/
 .hero {
     flex: 1;
     display: flex;
@@ -107,45 +108,117 @@ main {
     background-color: #FFF;
 }
 
-/* Photo container styles *******************************************************************************************/
+/* Photo Container Styles ******************************************************************************************/
 .photo-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     padding: 20px;
+    width: 100%;
 }
 
 .photo-container img {
-    width: 100%;
-    max-width 1200px;
-    height: 100%;
-    padding: 30px;
-    margin: 10px 0px;
+    width: auto;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 1px 16px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-container label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 5px 0;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 1px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-container label:hover {
+    background-color: #EEE;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .photo-squares {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
-.photo-container img:hover {
-    transform: scale(1.005);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+/* Custom Checkbox Styles ******************************************************************************************/
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    background-color: #f3f3f3;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.1s ease, border-color 0.1s ease;
 }
 
-/* Optional: Add a subtle background hover effect for each grid item */
-.photo-grid-squares:hover {
-    background-color: #f9f9f9; /* Light gray background when hovering over grid item */
-    border-radius: 10px;
+input[type="checkbox"]:checked {
+    background-color: #3498db;
+    border-color: #2980b9;
 }
 
-/* Upload container styles *******************************************************************************************/
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Button Styles ****************************************************************************************************/
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.delete-button {
+    padding: 12px 20px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+.delete-button i {
+    margin-right: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Upload Container Styles *****************************************************************************************/
 .upload-container {
     display: flex;
     flex-direction: column;
@@ -166,9 +239,8 @@ main {
     color: #2c3e50;
 }
 
-/* Style the file input */
 .upload-container input[type="file"] {
-    display: none; /* Hide the default input button */
+    display: none;
 }
 
 .upload-container label {
@@ -213,14 +285,14 @@ main {
     gap: 5px;
 }
 
-/* Status message styles */
+/* Status Message Styles *******************************************************************************************/
 #status-message {
     margin-top: 20px;
     font-size: 16px;
     color: #e74c3c;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments ******************************************************************************************/
 @media (max-width: 768px) {
     .upload-container {
         padding: 20px;
@@ -231,7 +303,7 @@ main {
     }
 }
 
-/* Footer styles *****************************************************************************************************/
+/* Footer Styles ****************************************************************************************************/
 .footer {
     display: flex;
     justify-content: center;

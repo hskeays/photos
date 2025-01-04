@@ -7,11 +7,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @Controller
 public class PhotosController {
@@ -25,16 +24,16 @@ public class PhotosController {
 
     @GetMapping("/photos")
     public String photos(Model model) {
-        Iterable<Photo> photos = photosService.get(); // Get all photos
-        model.addAttribute("photos", photos); // Add photos to model
+        Iterable<Photo> photos = photosService.get();
+        model.addAttribute("photos", photos);
         model.addAttribute("name", "John Doe");
-        return "photos"; // Render the photos.html template
+        return "photos";
     }
 
     @GetMapping("/photos/{id}")
     @ResponseBody
     public ResponseEntity<byte[]> getPhoto(@PathVariable Integer id) {
-        Photo photo = photosService.get(id);
+        Photo photo = photosService.getPhotoById(id);
         if (photo != null) {
             return ResponseEntity
                     .ok()
@@ -45,10 +44,16 @@ public class PhotosController {
         }
     }
 
-    // Delete a photo
-    @DeleteMapping("/photos/{id}")
-    public void delete(@PathVariable Integer id) {
-        if (photosService.get(id) == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        photosService.remove(id);
+    @PostMapping("/photos/delete")
+    public String deletePhotos(@RequestParam List<Integer> photoIds) {
+        if (photoIds != null && !photoIds.isEmpty()) {
+            for (Integer id : photoIds) {
+                if (photosService.getPhotoById(id) == null) {
+                    throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Photo with ID " + id + " not found");
+                }
+                photosService.deleteById(id);
+            }
+        }
+        return "redirect:/photos";
     }
 }
