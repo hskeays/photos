@@ -7,18 +7,19 @@
 </head>
 <body>
     <header>
-        <nav th:insert="~{fragments/navigation::navigation_bar}"></nav>
+        <nav class="nav" th:insert="~{fragments/navigation::navigation_bar}"></nav>
     </header>
 
-    <section class="hero">
-        <h1>Welcome to the Photo App!</h1>
-        <p th:text="'Welcome to the photo app, ' + ${name} + '!'"></p>
-    </section>
-
     <main>
-        <h2>Manage Your Photos</h2>
-        <a class="button" href="/photos">View Photos</a>
-        <a class="button" href="/upload">Upload Photos</a>
+        <section class="hero">
+            <h1>Welcome to the Photo App!</h1>
+            <p th:text="'Welcome to the photo app, ' + ${name} + '!'"></p>
+        </section>
+        <section class="s1">
+            <h2>Manage Your Photos</h2>
+            <a class="button" href="/photos">View Photos</a>
+            <a class="button" href="/upload">Upload Photos</a>
+        </section>
     </main>
 
     <footer class="footer" th:insert="~{fragments/footer::footer}"></footer>

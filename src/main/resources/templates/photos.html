@@ -10,11 +10,11 @@
         <nav th:insert="~{fragments/navigation::navigation_bar}"></nav>
     </header>
 
-    <section class="hero">
-        <h1 th:text="${name} + 's photos'">My Photos</h1>
-    </section>
-
     <main>
+        <section class="hero">
+            <h1 th:text="${name} + 's photos'">My Photos</h1>
+        </section>
+
         <div class="photo-container">
             <div class="photo-grid-squares" th:each="photo : ${photos}">
                 <img alt="Photo" class="photo" th:src="@{'/photos/' + ${photo.id}}">
