@@ -77,10 +77,10 @@ nav a:hover {
     flex-direction: column;
     padding: 40px 30px;
     border-radius: 7px;
+    max-width: 1600px;
     width: 100%;
     background-color: #EEE;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
-    max-width: 1800px;
 }
 
 .s1 {
@@ -94,7 +94,7 @@ nav a:hover {
     border-radius: 7px;
     background-color: #EEE;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
-    max-width: 1800px;
+    max-width: 1600px;
 }
 
 main {
@@ -114,8 +114,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 1600px;
     gap: 20px;
-    padding: 20px;
     width: 100%;
 }
 
@@ -133,7 +133,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     padding: 20px;
     margin: 5px 0;
     background-color: #FFF;
@@ -224,7 +224,7 @@ input[type="checkbox"]:checked::after {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 1800px;
+    max-width: 1600px;
     width: 100%;
     padding: 30px;
     background-color: #EEE;
